@@ -67,7 +67,6 @@ export const Card = styled.div`
 
 //Faq Section
 
-
 export const Faq = styled(About)`
     display: block;
     span{
@@ -92,5 +91,60 @@ export const Faq = styled(About)`
         p{
             padding: 1rem 0rem;
         }
+    }
+`;
+
+//NavBar
+
+export const StyledNav = styled.nav`
+    min-height: 10vh;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    background: #282828;
+    a{
+        color:white;
+        text-decoration: none;
+    }
+    ul{
+        display: flex;
+        list-style: none;
+    }
+    #logo{
+        font-size: 1.5rem;
+        font-family: "Lobster", cursive;
+        font-weight: lighter;
+    }
+    li{
+        padding-left: 10rem;
+        position: relative;
+    }
+`;
+
+
+// Our Work
+
+export const Work = styled.div`
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 5rem 10rem;
+    h2 {
+        padding: 1rem 0rem;
+    }
+`;
+
+export const Movie = styled.div`
+    padding-bottom: 10rem;
+    .line {
+        height: 0.5rem;
+        background: #ccc;
+        margin-bottom: 3rem;
+    }
+    img {
+        width: 100%;
+        height: 70vh;
+        object-fit: cover;
     }
 `;
