@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { motion } from "framer-motion";
+
 //About Section
 
 export const About = styled.div`
@@ -14,6 +16,7 @@ export const About = styled.div`
 export const Description = styled.div`
     flex: 1;
     padding-right: 5rem;
+    z-index:2;
     h2{
         font-weight: lighter;
     }
@@ -22,6 +25,7 @@ export const Description = styled.div`
 export const Image = styled.div`
     flex: 1;
     overflow: hidden;
+    z-index:2;
     img{
         width: 100%;
         height: 90vh;
@@ -126,7 +130,7 @@ export const StyledNav = styled.nav`
 
 // Our Work
 
-export const Work = styled.div`
+export const Work = styled(motion.div)`
     min-height: 100vh;
     overflow: hidden;
     padding: 5rem 10rem;
@@ -139,7 +143,7 @@ export const Movie = styled.div`
     padding-bottom: 10rem;
     .line {
         height: 0.5rem;
-        background: #ccc;
+        background: #23d997;
         margin-bottom: 3rem;
     }
     img {
@@ -151,7 +155,7 @@ export const Movie = styled.div`
 
 //Movie Details
 
-export const Details = styled.div`
+export const Details = styled(motion.div)`
     color: white;
 
 `;
@@ -204,4 +208,12 @@ export const AwardStyle = styled.div`
     p{
         padding: 2rem 0rem;
     }
+`;
+
+//Wave
+
+export const WaveSvg = styled.svg`
+    position: absolute;
+    left: 0;
+    z-index: 1;
 `;

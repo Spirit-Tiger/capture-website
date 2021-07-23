@@ -5,51 +5,62 @@ import { MovieState } from "../movieState";
 
 import { Details, HeadLine, Awards, AwardStyle, ImageDisplay } from "../styles";
 
+//Animation
+
+import { pageAnimation } from "../animation";
+
 const MovieDetail = () => {
+  const history = useHistory();
+  const url = history.location.pathname;
+  const [movies, setMovies] = useState(MovieState);
+  const [movie, setMovie] = useState(null);
 
-    const history = useHistory();
-    const url = history.location.pathname;
-    const [movies , setMovies] = useState(MovieState);
-    const [movie , setMovie] = useState(null);
-
-
-    useEffect(() =>{
-        const currentMovie = movies.filter((stateMovie) => stateMovie.url === url);
-        setMovie(currentMovie[0]);
-        console.log('my-change');
-    }, [movies, url]);
-    return (
-        <>
-        {movie && (
-            <Details>
-                <HeadLine>
-                    <h2>{movie.title}</h2>
-                    <img src={movie.mainImg} alt={movie.title} />
-                </HeadLine>
-                <Awards>
-                    {movie.awards.map((award) => (
-                       <Award title={award.title} description={award.description} key={award.title}/>
-                    ))}
-                </Awards>
-                <ImageDisplay>
-                    <img src={movie.secondaryImg} alt="secondaryImg" />
-                </ImageDisplay>
-            </Details>
-            )}
-        </>
-    );
+  useEffect(() => {
+    const currentMovie = movies.filter((stateMovie) => stateMovie.url === url);
+    setMovie(currentMovie[0]);
+    console.log("my-change");
+  }, [movies, url]);
+  return (
+    <>
+      {movie && (
+        <Details
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
+          <HeadLine>
+            <h2>{movie.title}</h2>
+            <img src={movie.mainImg} alt={movie.title} />
+          </HeadLine>
+          <Awards>
+            {movie.awards.map((award) => (
+              <Award
+                title={award.title}
+                description={award.description}
+                key={award.title}
+              />
+            ))}
+          </Awards>
+          <ImageDisplay>
+            <img src={movie.secondaryImg} alt="secondaryImg" />
+          </ImageDisplay>
+        </Details>
+      )}
+    </>
+  );
 };
 
 //Award Component
 
-const Award = ({title,description}) => {
-    return(
-        <AwardStyle>
-            <h3>{title}</h3>
-            <div className="line"></div>
-            <p>{description}</p>
-        </AwardStyle>
-    );
+const Award = ({ title, description }) => {
+  return (
+    <AwardStyle>
+      <h3>{title}</h3>
+      <div className="line"></div>
+      <p>{description}</p>
+    </AwardStyle>
+  );
 };
 
-export default MovieDetail
+export default MovieDetail;
