@@ -8,6 +8,7 @@ import { Details, HeadLine, Awards, AwardStyle, ImageDisplay } from "../styles";
 //Animation
 
 import { pageAnimation } from "../animation";
+import ScrollTop from "../components/ScrollTop";
 
 const MovieDetail = () => {
   const history = useHistory();
@@ -47,6 +48,7 @@ const MovieDetail = () => {
           </ImageDisplay>
         </Details>
       )}
+      <ScrollTop />
     </>
   );
 };

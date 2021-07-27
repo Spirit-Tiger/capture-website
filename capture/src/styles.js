@@ -4,13 +4,18 @@ import { motion } from "framer-motion";
 
 //About Section
 
-export const About = styled.div`
+export const About = styled(motion.div)`
     min-height:90vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 5rem 10rem;
     color: white;
+    @media (max-width:1300px){
+            display: block;
+            padding: 2rem;
+            text-align:center;
+        }
 `;
 
 export const Description = styled.div`
@@ -20,6 +25,14 @@ export const Description = styled.div`
     h2{
         font-weight: lighter;
     }
+
+    @media (max-width:1300px){
+            padding: 0;
+            button{
+                margin: 2rem 0rem 5rem 0rem;
+
+            }
+        }
 `;
 
 export const Image = styled.div`
@@ -48,11 +61,16 @@ export const Services = styled(About)`
         width: 70%;
         padding: 2rem 0rem 4rem 0rem;
     }
+
 `;
 
 export const Cards = styled.div`
     display: flex;
     flex-wrap: wrap;
+    
+    @media (max-width:1300px){
+            justify-content: center;
+        }
 `;
 
 export const Card = styled.div`
@@ -108,6 +126,9 @@ export const StyledNav = styled.nav`
     align-items: center;
     padding: 1rem 10rem;
     background: #282828;
+    position: sticky;
+    top:0;
+    z-index: 20;
     a{
         color:white;
         text-decoration: none;
@@ -125,6 +146,29 @@ export const StyledNav = styled.nav`
         padding-left: 10rem;
         position: relative;
     }
+    
+    @media (max-width:1300px){
+            flex-direction: column;
+            padding: 1rem;
+            ul{
+                padding: 2rem;
+                justify-content: space-around;
+                width: 100%;
+                li{
+                    padding: 0;
+                }
+            }
+
+        }
+`;
+
+export const Line  = styled(motion.div)`
+    height: 0.5rem;
+    background: #23d997;
+    width: 0%;
+    position: absolute;
+    bottom: -80%;
+    left: 60%;
 `;
 
 
@@ -139,7 +183,7 @@ export const Work = styled(motion.div)`
     }
 `;
 
-export const Movie = styled.div`
+export const Movie = styled(motion.div)`
     padding-bottom: 10rem;
     .line {
         height: 0.5rem;
